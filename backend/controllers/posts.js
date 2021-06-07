@@ -1,5 +1,5 @@
 const PostMessage = require('../models/postMessage')
-
+const mongoose = require('mongoose')
 
 exports.getPosts = async (req,res) => {
     try {
@@ -28,7 +28,17 @@ exports.updatePosts = async (req,res) => {
 
     if(!(mongoose.Types.ObjectId.isValid(_id))) return res.json(404).send('No post with that ID');
 
-    const updatedPosts = await PostMessage.findByIdAndUpdate(_id,post,{new:true})
+    const updatedPosts = await PostMessage.findByIdAndUpdate(_id,{...post,_id} ,{new:true})
 
     res.json(updatedPosts)
+}
+
+exports.deletePosts = async (req,res) => {
+    const {id} = req.params
+
+    if(!(mongoose.Types.ObjectId.isValid(id))) return res.json(404).send('No post with that ID');
+
+    await PostMessage.findByIdAndRemove(id)
+
+    res.json({message:'Post deleted Successfully'})
 }
