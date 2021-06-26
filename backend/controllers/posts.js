@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 exports.getPosts = async (req,res) => {
     try {
         const posts = await PostMessage.find()
-
         res.status(200).json(posts)
     } catch (error) {
         res.status(404).json({message:error.message})
@@ -37,7 +36,8 @@ exports.deletePosts = async (req,res) => {
     const {id} = req.params
 
     if(!(mongoose.Types.ObjectId.isValid(id))) return res.json(404).send('No post with that ID');
-
+    const post = await PostMessage.findById(id)
+    
     await PostMessage.findByIdAndRemove(id)
 
     res.json({message:'Post deleted Successfully'})
@@ -47,8 +47,9 @@ exports.likePost  = async (req,res) => {
     const {id} = req.params
 
     if(!(mongoose.Types.ObjectId.isValid(id))) return res.json(404).send('No post with that ID')
-    const post = PostMessage.findById(id)
-    const updatedPost = await PostMessage.findByIdAndUpdate(id,{likeCount:post.likeCount + 1},{new:true})
+    const post = await PostMessage.findById(id)
+   
+    const updatedPost = await PostMessage.findByIdAndUpdate(id,{likeCount:parseInt(post.likeCount) + 1},{new:true})
 
     res.json(updatedPost)
 }
