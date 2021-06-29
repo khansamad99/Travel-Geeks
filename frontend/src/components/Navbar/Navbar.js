@@ -22,6 +22,7 @@ const Navbar = () => {
         const token = user?.token
         setUser(JSON.parse(localStorage.getItem('profile')))
     },[location])
+    
     console.log(user)
     return (
 
