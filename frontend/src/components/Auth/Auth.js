@@ -11,6 +11,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 const Auth = () => {
 
     const classes = useStyles()
+    const dispatch = useDispatch()
+    const history = useHistory()
     const [showPassword,setShowPassword] = useState(false)
     const [isSignup,setisSignup] = useState(false)
 
@@ -31,7 +33,16 @@ const Auth = () => {
         handleShowPassword(false)
     }
 
-    const googleSuccess = () => {
+    const googleSuccess = async (res) => {
+        const result = res ?.profileObj; // ?. is an operator that's not gonna show an error if we don't have an access to res object 
+        const token = res?.tokenId;
+        console.log(res)
+        try {
+            dispatch({ type:'AUTH',data:{result,token}})
+            history.push('/')
+        } catch (error) {
+             console.log(error)
+        }
         console.log("Success")
     }
 
