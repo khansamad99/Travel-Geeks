@@ -1,0 +1,7 @@
+  
+body {
+    background-color: rgba(0,183,255, 1);
+    background-image: url('./1.jpg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
