@@ -7,6 +7,15 @@ import { GoogleLogin } from 'react-google-login';
 import useStyles from './styles'
 import Input from './Input'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {signup,signin} from '../../actions/auth'
+
+const initialState = {
+    firstName: '', 
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+}
 
 const Auth = () => {
 
@@ -14,14 +23,21 @@ const Auth = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [showPassword,setShowPassword] = useState(false)
+    const [formData,setFormData] = useState();
     const [isSignup,setisSignup] = useState(false)
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(isSignup){
+            dispatch(signup(formData,history))
+        }
+        else{
+            dispatch(signin(formData,history))
+        }
     }
 
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        setFormData({...formData,[e.target.name]:e.target.value});
     }
 
     const handleShowPassword = () => {
@@ -34,7 +50,7 @@ const Auth = () => {
     }
 
     const googleSuccess = async (res) => {
-        const result = res ?.profileObj; // ?. is an operator that's not gonna show an error if we don't have an access to res object 
+        const result = res?.profileObj; // ?. is an operator that's not gonna show an error if we don't have an access to res object 
         const token = res?.tokenId;
         console.log(res)
         try {
