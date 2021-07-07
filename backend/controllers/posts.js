@@ -56,10 +56,10 @@ exports.likePost  = async (req,res) => {
     if(index === -1){
         post.likes.push(req.userId)
     }else{
-        post.likes = post.likes.filter()
+        post.likes = post.likes.filter((id) => id!== String(req.userId))
     }
    
-    const updatedPost = await PostMessage.findByIdAndUpdate(id,{likeCount:parseInt(post.likeCount) + 1},{new:true})
+    const updatedPost = await PostMessage.findByIdAndUpdate(id,post,{new:true})
 
     res.json(updatedPost)
 }
