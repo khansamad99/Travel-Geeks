@@ -45,7 +45,7 @@ exports.deletePosts = async (req,res) => {
 
 exports.likePost  = async (req,res) => {
     const {id} = req.params
-
+    console.log(id)
     if(!req.userId) return res.json({message:'Unauthenticated'})
     if(!(mongoose.Types.ObjectId.isValid(id))) return res.json(404).send('No post with that ID')
 
@@ -60,6 +60,6 @@ exports.likePost  = async (req,res) => {
     }
    
     const updatedPost = await PostMessage.findByIdAndUpdate(id,post,{new:true})
-
+    console.log(updatedPost)
     res.json(updatedPost)
 }

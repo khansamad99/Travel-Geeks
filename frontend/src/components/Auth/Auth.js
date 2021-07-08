@@ -29,12 +29,13 @@ const Auth = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(isSignup){
+            console.log(formData)
             dispatch(signup(formData,history))
-            history.push('/')
         }
         else{
+            console.log(formData)
             dispatch(signin(formData,history))
-            history.push('/')
+           
         }
     }
 

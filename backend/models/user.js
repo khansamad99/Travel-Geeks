@@ -7,6 +7,6 @@ const userSchema = mongoose.Schema({
   id: { type: String },
 });
 
-const User = mongoose.model("User", userSchema);
+const UserModal = mongoose.model("UserModal", userSchema);
 
-module.exports = User
+module.exports = UserModal

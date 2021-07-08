@@ -8,7 +8,7 @@ router.get('/',getPosts)
 router.post('/',auth,createPosts)
 router.put('/:id',auth,updatePosts)
 router.delete('/:id',auth,deletePosts)
-router.put('/:id/likePost',likePost)
+router.put('/:id/likePost',auth,likePost)
 
 
 module.exports = router
