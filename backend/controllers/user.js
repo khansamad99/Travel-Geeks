@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 
-const secret = 'TEST';
-
+const secret = process.env.SECRET;
+console.log(process.env.SECRET)
 exports.signin = async (req, res) => {
   const { email, password } = req.body;
   console.log(email,password)
