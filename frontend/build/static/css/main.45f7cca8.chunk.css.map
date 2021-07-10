@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AACA,KACI,wBAAoC,CACpC,uDAAA,CACA,2BAA4B,CAC5B,qBACJ","file":"main.45f7cca8.chunk.css","sourcesContent":["  \r\nbody {\r\n    background-color: rgba(0,183,255, 1);\r\n    background-image: url('./1.jpg.webp');\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n}"]}
