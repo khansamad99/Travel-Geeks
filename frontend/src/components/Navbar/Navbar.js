@@ -5,6 +5,8 @@ import { useHistory,useLocation } from 'react-router-dom';
 import {AppBar,Typography,Toolbar,Avatar,Button} from '@material-ui/core'
 import { Link,BrowserRouter as Router} from 'react-router-dom';
 import useStyles from './styles'
+import logo from '../../images/logo1.jpg'
+import headingLogo from '../../images/heading.png'
 
 const Navbar = () => {
 
@@ -33,7 +35,10 @@ const Navbar = () => {
     return (
 
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <Typography className={classes.heading} variant="h2" align="center">Adventure Space</Typography>
+            <Link to="/" className={classes.brandContainer}>
+                <img className={classes.image} src={logo} alt="icon" height="100px" />
+                <img className={classes.heading} src={headingLogo} alt="icon" height="70px" />
+             </Link>
             <Toolbar className={classes.toolbar}>
                 {user ? (
                 <div className={classes.profile}>

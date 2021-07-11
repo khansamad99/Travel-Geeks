@@ -37,7 +37,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if(!user?.result?.name){
     return (
-      <Paper className={classes.paper}>
+      <Paper className={classes.paper} elevation={6}>
         <Typography variant="h6" align="center">
           Please Sign In to add your adventure memory and like other's adventures
         </Typography>
