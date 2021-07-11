@@ -10,4 +10,6 @@ Share your Travel experience memories with other geeks
 - Edit and Delete 
 - Like experiences
 - Search feature by tags and title
-- View Posts
+
+
+![screenshot](https://github.com/khansamad99/Adventure-Space/blob/main/frontend/src/images/image%20(1).png)
