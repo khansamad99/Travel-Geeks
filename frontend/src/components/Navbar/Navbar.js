@@ -28,7 +28,8 @@ const Navbar = () => {
             if(decodedToken.exp * 1000 < new Date().getTime()) logout()
         }
         setUser(JSON.parse(localStorage.getItem('profile')))
-    },[location])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location])
     
     console.log(user)
     return (

@@ -9,13 +9,6 @@ import Input from './Input'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {signup,signin} from '../../actions/auth'
 
-const initialState = {
-    firstName: '', 
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-}
 
 const Auth = () => {
 
