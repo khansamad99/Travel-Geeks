@@ -4,7 +4,7 @@ Share your Travel experience memories with other geeks
 ## Features
 
 - Social Media App
-- User can register and Login
+- User can register and Login 
 - Google OAuth
 - Add Name,tags,description,photo for your experience
 - Edit and Delete 
