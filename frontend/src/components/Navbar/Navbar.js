@@ -1,9 +1,8 @@
 import React,{ useState,useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
-import { useHistory,useLocation } from 'react-router-dom';
+import { Link,useHistory,useLocation } from 'react-router-dom';
 import {AppBar,Typography,Toolbar,Avatar,Button} from '@material-ui/core'
-import { Link,BrowserRouter as Router} from 'react-router-dom';
 import useStyles from './styles'
 import logo from '../../images/logo1.jpg'
 import headingLogo from '../../images/heading.png'
