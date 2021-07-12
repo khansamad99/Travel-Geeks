@@ -22,19 +22,22 @@ app.use(cors())
 app.use('/posts',postRoutes)
 app.use('/user',userRoutes)
 
+app.get('/',(req, res) => {
+    res.send('Hello to API')
+})
 
-if(process.env.NODE_ENV === 'production'){
-    console.log(__dirname)
-    app.use(express.static(path.join(__dirname,'../frontend/build')))
-    app.get('*', (req, res) =>
-            res.sendFile(path.resolve(__dirname, '../','frontend', 'build', 'index.html'))
-  )
-} else{
-    app.get('/',(req,res) => {
-        res.send('Hllo')
-    })
+// if(process.env.NODE_ENV === 'production'){
+//     console.log(__dirname)
+//     app.use(express.static(path.join(__dirname,'../frontend/build')))
+//     app.get('*', (req, res) =>
+//             res.sendFile(path.resolve(__dirname, '../','frontend', 'build', 'index.html'))
+//   )
+// } else{
+//     app.get('/',(req,res) => {
+//         res.send('Hllo')
+//     })
     
-}
+// }
 
 
 const PORT = process.env.PORT || 5000
