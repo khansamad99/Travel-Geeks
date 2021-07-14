@@ -1,6 +1,19 @@
 const PostMessage = require('../models/postMessage')
 const mongoose = require('mongoose')
 
+
+exports.getPost = async (req,res) => {
+    const {id} = req.params
+    console.log(id)
+    try{
+        const post = await PostMessage.findById(id)
+        res.status(200).json(post)
+    }
+    catch(error){
+        res.status(404).json({message:error.message})
+    }   
+    
+}
 exports.getPosts = async (req,res) => {
     const {page} = req.query
     try {
@@ -9,6 +22,7 @@ exports.getPosts = async (req,res) => {
         const total = await PostMessage.countDocuments({})
 
         const posts = await PostMessage.find().sort({_id: -1}).limit(LIMIT).skip(startIndex) // fetch post for a particular page and skip others sort them by latest
+        
         res.status(200).json({data: posts,currentPage:Number(page),numberOfPage:Math.ceil(total/LIMIT)})
     } catch (error) {
         res.status(404).json({message:error.message})
